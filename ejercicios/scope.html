@@ -15,6 +15,15 @@
     <script>
         //Global scope or window, toda variable declarada fuera de una funcion o bloque es scope global y para acceder a el se utiliza window
         var message = 'Hellow brous';
+
+        //scope local
+        function printNumbers() {
+            for (let index = 0; index < 10; index++) {
+                setTimeout(function () {
+                    console.log(index);
+                }, 100)
+            }
+        }
     </script>
 </body>
 
