@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+        //Un objeto comun y corriente
+        // const goku = {
+        //     name: "Goku"
+        // }
+
+        // goku.saludar = function () {
+        //     console.log(`Hola, soy ${this.name}`);
+        // }
+
+        // goku.saludar();
+
+        // const veggeta = {
+        //     name: "veggeta"
+        // }
+
+        // veggeta.saludar = function () {
+        //     console.log(`Hola, soy ${this.name}`);
+        // }
+
+        // veggeta.saludar();
+
+        //Manera un poco mas eficiente
+
+        //function Hero(name) {
+        //     const hero = {
+        //         name: name
+        //     }
+
+        //     hero.saludar = function () {
+        //         console.log(`Hola, soy ${this.name}`);
+        //     }
+
+        //     return hero
+        // }
+
+
+        // const goku = Hero('Goku');
+        // goku.saludar();
+        // const veggeta = Hero('veggeta');
+        // veggeta.saludar();
+
+
+
+        //Mejorando
+
+        // const heroMethods = {
+        //     saludar: function () {
+        //         console.log(`Hola, soy ${this.name}`);
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = {
+        //         name: name
+        //     };
+
+        //     hero.saludar = heroMethods.saludar;
+
+        //     return hero
+        // }
+
+
+        // const goku = Hero('Goku');
+        // goku.saludar();
+        // const veggeta = Hero('veggeta');
+        // veggeta.saludar();
+
+
+
+        //Object.create
+        //const nuevoObjeto = Object.create(objeto)
+
+        // const heroMethods = {
+        //     saludar: function () {
+        //         console.log(`Hola, soy ${this.name}`);
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = Object.create(heroMethods)
+        //     hero.name = name;
+        //     return hero
+        // }
+
+
+        // const goku = Hero('Goku');
+        // goku.saludar();
+        // const veggeta = Hero('veggeta');
+        // veggeta.saludar();
+
+
+        //Metodos de hero dentro de Hero
+
+        // const heroMethods = {
+        //     saludar: function () {
+        //         console.log(`Hola, soy ${this.name}`);
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = Object.create(Hero.prototype)
+        //     hero.name = name;
+        //     return hero
+        // }
+
+        // Hero.prototype.saludar = function () {
+        //     console.log(`Hola, soy ${this.name}`);
+        // }
+
+        // const goku = Hero('Goku');
+        // goku.saludar();
+        // const veggeta = Hero('veggeta');
+        // veggeta.saludar();
+
+
+        //new para llevar Hero.prototype al objeto
+        function Hero(name) {
+           // const hero = Object.create(Hero.prototype)
+            this    .name = name;
+            //return hero
+        }
+
+        Hero.prototype.saludar = function () {
+            console.log(`Hola, soy ${this.name}`);
+        }
+
+        const goku = new Hero('Goku');
+        goku.saludar();
+        const veggeta = new Hero('veggeta');
+        veggeta.saludar();
+    </script>
+</body>
+
+</html>
